@@ -39,5 +39,5 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name S3NewCSVSchemaCheckFunction \
-            --region $AWS_REGION \
+            --region $aws-region \
             --zip-file fileb://function.zip
