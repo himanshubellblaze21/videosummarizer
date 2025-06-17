@@ -38,6 +38,6 @@ jobs:
           zip-file: "function.zip"
         run: |
           aws lambda update-function-code \
-            --function-name S3NewCSVSchemaCheckFunction \
-            --region $aws-region \
+            --function-name transcribelambda \
+            --region 'ap-south-1' \
             --zip-file fileb://function.zip
