@@ -24,17 +24,20 @@ jobs:
       - name: Zip Lambda Function
         run: zip -r function.zip . -x "*.git*"
 
+      - name: Install AWS CLI
+        run: |
+          pip install awscli      
+
       # Step 4: Deploy to AWS Lambda
       - name: Deploy to AWS Lambda
-        uses: aws-actions/aws-lambda-deploy@v1
-        with:
+        env:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: "ap-south-1"  # Replace with your AWS region
           function-name: "transcribelambda"  # Replace with your Lambda function name
           zip-file: "function.zip"
-          run: |
-            aws lambda update-function-code \
+        run: |
+          aws lambda update-function-code \
             --function-name S3NewCSVSchemaCheckFunction \
             --region $AWS_REGION \
             --zip-file fileb://function.zip
