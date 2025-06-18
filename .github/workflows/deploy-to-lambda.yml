@@ -22,10 +22,12 @@ jobs:
 
      # Step 3: Install Python dependencies into build/ folder
       - name: Install dependencies
-        run: |
+         run: |
           mkdir -p build
+          pip install --upgrade pip
           pip install -r requirements.txt -t build
-          cp -r main.py api core services utils build/
+          cp -r main.py app build/  # ONLY copy what's needed
+          find build -type d -name '__pycache__' -exec rm -r {} +
 
       # # Step 3: Zip the code for Lambda deployment
       # - name: Zip Lambda Function
