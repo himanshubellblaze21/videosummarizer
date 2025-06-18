@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p build
           pip install -r requirements.txt -t build/
-          cp -r app main.py build/
+          cp -r main.py build/
           
       # Step 3: Zip the code for Lambda deployment
       - name: Zip Lambda Function
