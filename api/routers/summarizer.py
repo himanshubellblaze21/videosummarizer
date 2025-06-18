@@ -1,8 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from pydantic import BaseModel, Field, HttpUrl
 
-from app.services.video_io import save_upload, download_video
-from app.services.cache_service import summarize_with_cache
+from services.video_io import save_upload, download_video
+from services.cache_service import summarize_with_cache
 
 router = APIRouter()
 
