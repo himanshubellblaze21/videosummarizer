@@ -2,7 +2,7 @@ import os
 import json
 import boto3
 from botocore.config import Config
-from app.core.config import AWS_REGION, BEDROCK_MODEL_ID
+from core.config import AWS_REGION, BEDROCK_MODEL_ID
 
 # Initialize Bedrock runtime client
 client = boto3.client(
