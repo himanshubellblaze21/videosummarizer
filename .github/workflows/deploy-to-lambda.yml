@@ -21,6 +21,19 @@ jobs:
             npm install
           fi
 
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+       # Step 3: Install Python dependencies into build/ folder
+      - name: Install dependencies
+        run: |
+          mkdir -p build
+          pip install -r requirements.txt -t build
+          cp -r main.py api core services utils build/
+
       # Step 3: Zip the code for Lambda deployment
       - name: Zip Lambda Function
         run: zip -r function.zip . -x "*.git*"
