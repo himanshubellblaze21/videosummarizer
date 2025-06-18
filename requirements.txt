@@ -1,7 +1,7 @@
 fastapi
 uvicorn
 python-multipart
-pydantic
+pydantic==1.10.13
 aiofiles
 boto3
 botocore
