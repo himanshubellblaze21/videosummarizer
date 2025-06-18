@@ -1,7 +1,7 @@
 from mangum import mangum 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routers.summarizer import router as summarizer_router
+from api.routers.summarizer import router as summarizer_router
 app = FastAPI(
     title="AWS Video Summarizer",
     description="Upload or link a video to get a transcript summary via AWS Transcribe + Bedrock Titan."
