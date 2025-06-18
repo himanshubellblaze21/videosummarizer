@@ -20,18 +20,9 @@ jobs:
         with:
           python-version: '3.10.11'
           
-      - name: Prepare build directory
-        run: |
-          mkdir -p build
-          pip install -r requirements.txt -t build/
-          cp -r main.py api core services utils build/
-
-      # Step 3: Zip the code for Lambda deployment
       - name: Zip Lambda Function
-        run: |
-          cd build
-          zip -r ../function.zip .
-
+        run: zip -r function.zip . -x "*.git*"
+        
       - name: Install AWS CLI
         run: |
           pip install awscli      
