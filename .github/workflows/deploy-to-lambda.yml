@@ -20,26 +20,9 @@ jobs:
         with:
           python-version: '3.10.11'
 
-     # Step 3: Install Python dependencies into build/ folder
-      - name: Install dependencies
-         run:|
-          mkdir -p build
-          pip install --upgrade pip
-          pip install -r requirements.txt -t build
-          cp -r main.py app build/  # ONLY copy what's needed
-          
-
-      # # Step 3: Zip the code for Lambda deployment
-      # - name: Zip Lambda Function
-      #   run: zip -r function.zip . -x "*.git*"
-
+      # Step 3: Zip the code for Lambda deployment
       - name: Zip Lambda Function
-        run: |
-          cd build
-          zip -r ../function.zip .
-
-      - name: Show ZIP contents
-        run: unzip -l function.zip | grep mangum
+        run: zip -r function.zip . -x "*.git*"
 
       - name: Install AWS CLI
         run: |
