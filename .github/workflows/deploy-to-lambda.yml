@@ -27,9 +27,17 @@ jobs:
           pip install -r requirements.txt -t build
           cp -r main.py api core services utils build/
 
-      # Step 3: Zip the code for Lambda deployment
+      # # Step 3: Zip the code for Lambda deployment
+      # - name: Zip Lambda Function
+      #   run: zip -r function.zip . -x "*.git*"
+
       - name: Zip Lambda Function
-        run: zip -r function.zip . -x "*.git*"
+        run: |
+          cd build
+          zip -r ../function.zip .
+
+      - name: Show ZIP contents
+        run: unzip -l function.zip | grep mangum
 
       - name: Install AWS CLI
         run: |
