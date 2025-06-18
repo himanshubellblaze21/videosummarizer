@@ -1,8 +1,8 @@
 import hashlib
 import json
 import boto3
-from app.core.config import AWS_REGION, S3_BUCKET
-from app.services.summarizer_service import process_video
+from core.config import AWS_REGION, S3_BUCKET
+from services.summarizer_service import process_video
 
 # Initialize S3 client
 s3 = boto3.client("s3", region_name=AWS_REGION)
