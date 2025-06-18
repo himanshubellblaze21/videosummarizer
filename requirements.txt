@@ -7,7 +7,7 @@ boto3
 botocore
 ffmpeg-python
 requests
-magnum
+mangum
 pytube
 yt_dlp
 aiofiles
