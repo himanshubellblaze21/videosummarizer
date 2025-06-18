@@ -8,8 +8,8 @@ import requests
 import boto3
 import time 
 
-from app.utils.ai_client import generate_text
-from app.core.config import AWS_REGION, S3_BUCKET, TRANSCRIBE_LANGUAGE_CODE
+from utils.ai_client import generate_text
+from core.config import AWS_REGION, S3_BUCKET, TRANSCRIBE_LANGUAGE_CODE
 
 # AWS clients
 transcribe_client = boto3.client('transcribe', region_name=AWS_REGION)
